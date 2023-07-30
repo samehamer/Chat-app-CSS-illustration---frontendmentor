@@ -1,0 +1,419 @@
+/* Start Variables */
+
+:root {
+    --main-color: hsl(0, 0%, 100%);
+    --secondary-White: hsl(0, 0%, 100%);
+    --secondary-Light-Grayish-Violet:hsl(270, 20%, 96%);
+    --secondary-Very-Dark-Desaturated-Violet--:hsl(271, 36%, 24%);
+    --secondary-Very-Light-Magenta--:hsl(289, 100%, 72%);
+    --secondary-Pale-Violet--:hsl(276, 100%, 81%);
+    --secondary-Moderate-Violet:hsl(276, 55%, 52%);
+    --secondary-chat--:#ede5f4;
+    --Gradients-one:hsl(293, 100%, 63%);
+    --Gradients-two:hsl(264, 100%, 61%);
+    --section-padding: 60px;
+    --main-duration: 2s;
+  }
+
+
+
+/*
+  - White: hsl(0, 0%, 100%)
+  - Light Grayish Violet (app background): hsl(270, 20%, 96%)
+  - Very Dark Desaturated Violet (submit button background): hsl(271, 36%, 24%)
+  - Very Light Magenta (radio button outline): hsl(289, 100%, 72%)
+*/
+
+  /* End Variables */
+  
+  /* Start Global Rules */
+  
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Cairo', sans-serif;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Jomhuria', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    background-color: var(--main-color);
+  }
+  
+  .container {
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  
+  /* Small */
+  
+  @media (min-width: 375px) {
+    .container {
+      width: 750px;
+    }
+  }
+  
+  
+  /* Large */
+
+  @media (min-width: 1440px) {
+    .container {
+      width: 1400px;
+    }
+  }
+  
+  /* End Global Rules */
+    /* Start Gradients Div */
+  
+  .grad {
+      position: fixed;
+      top: -100px;
+      left: -200px;
+      background-image: linear-gradient(to bottom ,var(--Gradients-one), var(--Gradients-two));
+      width: 600px;
+      height: 800px;
+      border-radius: 0 0 50% 50%;
+    }
+
+    @media (max-width:375px) {
+      .grad {
+        top: -280px;
+        left: -415px;
+      }
+    }
+      /* End Gradients Div */
+  /* Start Mobile Section */
+  .mobile {
+    width: 250px;
+    height: 500px;
+    background-color: var(--secondary-Light-Grayish-Violet);
+    border-radius: 30px;
+    position: relative;
+    top: 150px;
+    left: 325px;
+    box-shadow: 5px 5px 20px #DDD;
+    border: 10px solid var(--main-color);
+  }
+
+  @media (max-width:375px) {
+    .mobile { 
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50px;
+    }
+  }
+
+  .mobile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to left ,var(--Gradients-one), var(--Gradients-two));
+    width: 100%;
+    height: 60px;
+    border-radius: 20px 20px 8px 8px;
+  } 
+
+  .mobile::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 20px;
+    background-color: var(--main-color);
+    z-index: 3;
+    transform: translateX(-50%);
+    border-radius: 0 0 10px 10px;
+  }
+
+  .mobile .owner {
+    position: absolute;
+    z-index: 3;
+    top: 100px;
+    text-align: center;
+    position: absolute;
+    color: var(--secondary-Light-Grayish-Violet);
+    top: 12px;
+    left: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, auto );
+    grid-template-rows: repeat(2, 15px );
+    gap: 5px;
+  }
+
+  .mobile .owner::before {
+    /* font-family: "Font Awesome 5 Free"; */
+    /* content: "\f00c"; */
+    content: "<";
+    position: absolute;
+    top: 12px;
+    left: 2px;
+    color: var(--secondary-Light-Grayish-Violet);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .mobile .owner::after {
+    /* font-family: "Font Awesome 5 Free"; */
+    /* content: "\f00c"; */
+    content: "...";
+    position: absolute;
+    top: 12px;
+    right: -60px;
+    rotate: 90deg;
+    color: var(--secondary-Light-Grayish-Violet);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .mobile .owner img {
+    width: 30px;
+    border-radius: 50%;
+    border: 3px solid white;
+    grid-row: 1/3;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-left: 15px;
+  }
+
+  .mobile .owner h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .mobile .owner p {
+    grid-row: 2/2;
+    grid-column: 2/3;
+    font-weight: 300;
+    font-size: 10px;
+  }
+
+  .mobile .other {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+  }
+
+  .mobile .chat {
+    background-color: var(--secondary-chat--);
+    color: var(--Gradients-two);
+    max-width: 60%;
+    font-size:8px;
+    height: fit-content;
+    border-radius: 10px 10px 10px 3px;
+    left: 0;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 0 10px;
+  }
+
+  .five  {
+    padding: 10px 10px !important;
+  }
+
+  .mobile .rChat {
+    background-color: var(--main-color);
+    color: #777;
+    max-width: 60%;
+    font-size:8px;
+    height: fit-content;
+    border-radius: 10px 10px 3px 10px;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 10px 10px;
+    justify-self: flex-end;
+    align-self: flex-end;
+  }
+
+  .mobile .other .images {
+    display: flex;
+    background-color: none;
+    color: none;
+    justify-content: flex-end;
+    right: 0;
+  }
+
+  .mobile .other .images img {
+    width: 49px;
+    border-radius: 15px;
+    border: 3px solid white;
+    margin-right: 3px;
+    margin-top: 8px;
+    margin-bottom: -2px;
+  }
+
+  .mobile .color {
+    width: 80%;
+    height: 28px;
+    background-image: linear-gradient(to right ,var(--Gradients-one), var(--Gradients-two));
+    left: 0;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile .color2 {
+    width: 80%;
+    height: 28px;
+    background-image: linear-gradient(to right ,var(--Gradients-one), var(--Gradients-two));
+    left: 0;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .mobile .color::before,
+  .mobile .color2::before {
+    content: "O";
+    padding-left: 0;
+    padding-right: 5px;
+    font-weight: 100;
+    font-size: 15px;
+    opacity: .7;
+  }
+
+  .mobile .color::after {
+    content: '$29';
+    right: 0;
+    position: absolute;
+    right: 98px;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 10px;
+  }
+  
+  .mobile .color2::after {
+    content: '$49';
+    right: 0;
+    position: absolute;
+    right: 98px;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  .mobile .type {
+    min-width: 93%;
+    height: 39px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 48%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    border-radius: 25px 25px 25px 25px;
+    display: flex;
+    align-items: center;
+    color: #bbb;
+    padding-left: 20px;
+  }
+
+  .mobile .type::after {
+    content: ">";
+    position: absolute;
+    right: 10px;
+    background-color: #3d2552;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color);
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+
+  /* End Mobile Section */
+  /* Start Text Sction */
+
+
+    .text {
+        position: fixed;
+        width: 450px;
+        height: 250px;
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 1.6;
+        right: 260px;
+        top: 300px;
+        z-index: 50;
+    }
+
+
+  
+    .text h3 {
+        color: var(--secondary-Very-Dark-Desaturated-Violet--);
+        font-weight: 700;
+        margin-bottom: -40px;
+        font-size: 35px;
+    }
+    .text p {
+        color: var(--secondary-Very-Dark-Desaturated-Violet--);
+        font-size: 15px;
+        color: var(--secondary-Very-Dark-Desaturated-Violet--);
+        opacity: .4;
+    }
+
+    @media (max-width:375px) {
+      .text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        top: 550px;
+        flex-direction: column;
+      }
+
+      .text h3 {
+        font-size: 25px;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+
+      .text p {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+
+  /* End Text Sction  */
+  /* Start Color Div */
+  .colorDiv {
+        position: fixed;
+        bottom: -40px;
+        right: -180px;
+        background-image: linear-gradient(to bottom ,var(--secondary-Light-Grayish-Violet), var(--secondary-Light-Grayish-Violet));
+        width: 500px;
+        height: 700px;
+        border-radius: 50% 50% 0 0;
+        z-index: -1;
+        opacity: .6;
+  }
+
+  @media (max-width:375px) {
+    .colorDiv {
+      bottom: -280px;
+      right: -280px;
+    }
+  }
+  /* End Color Div */
